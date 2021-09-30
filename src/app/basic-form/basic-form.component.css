@@ -1,0 +1,39 @@
+#HASH {
+  display: flex;
+  justify-content: space-between;
+}
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a {
+  color: #000!important;
+  float: none;
+  display: inline-block;
+
+  padding: 0.571em 1em;
+  font-weight: 700;
+}
+.btnGroup{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.formContainer{
+  background-color: #f4f5f7;
+    padding: 50px;
+    float: left;
+}
+.body{
+  background-color: aquamarine;
+}
+input.ng-touched.ng-invalid{
+  border: 1px solid red;
+  color: #C7381B;
+
+}
+.err{
+  color: #C7381B;
+  font-size: 11px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+
+}

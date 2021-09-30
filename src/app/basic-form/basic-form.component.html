@@ -1,0 +1,149 @@
+<ng-container >
+  <div class="formContainer">
+    <div  class="formContainer-inner" id="HASH">
+      <span class="pull-left" style="font-size: 20px;">
+        <strong>Create Your Account</strong>
+      </span>
+
+
+      <span class="pull-right">
+        <a tabindex="0" aria-label="Click here to Login in application" style="color: rgb(251, 121, 43); font-size: 14px;">
+          <u>
+            <strong>SIGN IN</strong>
+          </u>
+        </a>
+
+      </span>
+    </div>
+    <div>
+      <li>
+        <a role="tab" id="ui-tabpanel-0-label" style="margin-top: 50px; padding:8px 14px;" aria-selected="true" aria-controls="ui-tabpanel-0">
+          <span>Basic Details</span>
+        </a>
+        <a role="tab" id="ui-tabpanel-0-label" aria-selected="true" aria-controls="ui-tabpanel-0" style="margin-top: 50px; padding:8px 14px;" >
+          <span>Personal Details</span>
+        </a>
+        <a role="tab" id="ui-tabpanel-0-label" aria-selected="true" aria-controls="ui-tabpanel-0" style="margin-top: 50px; padding:8px 14px;" >
+          <span>Address</span>
+        </a>
+      </li>
+    </div>
+    <div>
+      <div class="form-group" style="font-size: 14px; padding: 15px 0px 15px 0px;">
+        <span>
+          <strong>GARBAGE/JUNK VALUES IN PROFILE MAY LEAD TO DEACTIVATION</strong>
+        </span>
+        <br>
+        <span>Please use a valid E-Mail ID and mobile number in registration.</span>
+      </div>
+    </div>
+
+    <form [formGroup]="formdata" (ngSubmit)="onClickSubmit()" >
+      <div class="form-item">
+        <div class="form-group">
+          <input maxlength="30"
+                  size="30"
+                  type="text"
+                  id="userName"
+                  formControlName="userName" name="userName"
+                   placeholder="User Email Address" >
+          <br/>
+          <div class="err">
+            <span *ngIf="formdata.get('userName')?.touched && formdata.get('userName')?.hasError('required')">** Enter User Name</span>
+          <span *ngIf="formdata.get('userName')?.touched && formdata.get('userName')?.hasError('email')">** Enter Valid Email</span>
+          <span *ngIf="formdata.get('userName')?.touched && formdata.get('userName')?.hasError('minLength')">** Minimum length must more than 5 Characters</span>
+          <span *ngIf="formdata.get('userName')?.touched && formdata.get('userName')?.hasError('pattern')">**Sorry email id does not exsist .Please Enter Valid Email Id.</span>
+          </div>
+
+
+                  <!-- <div *ngIf="userName.hasError('required') && userName.touched" class="error-msg">
+                      <img src="./assets/images/alert-red.svg" alt="" /
+                      User Name is required
+                  </div> -->
+        </div><br/>
+
+        <div class="form-group">
+          <input maxlength="30"
+                  size="30"
+                  type="text"
+                  id="password"
+                  formControlName="password" name="password"
+                  class="password" placeholder="password" autofocus="">
+          <br/>
+          <div class="err">
+            <span *ngIf="password.touched && password.hasError('required')">**Enter password**</span><br/>
+            <!-- <span *ngIf="password?.touched && password?.hasError('pattern')">**User Name and User password should not be the same**</span> -->
+            <span *ngIf="password?.errors?.pattern && password?.touched">**Minimum eight characters, at least one uppercase letter, one lowercase letter and one number**</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input maxlength="30"
+                  size="30"
+                  type="text"
+                  id="confirmPassword"
+                  formControlName="confirmPassword" name="confirmPassword"
+                  class="confirmPassword" placeholder="Confirm Password" autofocus=""><br/>
+          <div class="err">
+
+            <span *ngIf="formdata.get('confirmPassword')?.hasError('mustMatch')">Password and confirmPassword should  be the same.</span>
+          </div>
+
+
+        </div><br/>
+
+        <div class="form-group">
+          <select class="form-group form-control-sm" style="size:500px" formControlName="preferredlanguage">
+            <option> Preferred Language </option>
+            <option >English</option>
+            <option>Hindi</option>
+          </select><br>
+          <div class="err">
+            <span *ngIf="formdata.get('preferredlanguage')?.hasError('required')">**Preferred Language is Required.</span>
+          </div>
+
+
+        </div><br/>
+
+        <div class="form-group">
+          <select class="form-group form-control-sm" style="size:180px;" formControlName="question">
+            <option>Security Question</option>
+            <option>What is your favourite part time?</option>
+            <option>What is your Pet's name</option>
+            <option>Who is your childhood hero?</option>
+            <option>What was you school name?</option>
+          </select><br/>
+          <div class="err">
+            <span *ngIf="formdata.get('question')?.hasError('required')">**Security Question is Required.</span>
+          </div>
+
+        </div><br/>
+
+        <div class="form-group">
+          <input maxlength="30"
+                  size="30"
+                  type="text"
+                  id="securityAnswer"
+                  formControlName="securityAnswer" name="securityAnswer"
+                  class="securityAnswer" placeholder="Security Answer" autofocus="">
+        </div><br/>
+        <div class="err">
+          <span *ngIf="formdata.get('securityAnswer')?.hasError('required')">Security Answer is Required.</span>
+        </div>
+
+      </div>
+
+      <br/>
+      <br/>
+      <div class="btnGroup">
+        <button type="submit" class="btn btn-warning mb-2" [disabled]="!formdata.valid">Continue</button>
+        <button type="button" class="btn btn-outline-warning">Cancel</button>
+      </div>
+
+   </form>
+
+
+
+  </div>
+</ng-container>
+
